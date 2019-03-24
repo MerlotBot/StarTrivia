@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		805B861C2247884200B9DE3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B861B2247884200B9DE3E /* AppDelegate.swift */; };
-		805B861E2247884200B9DE3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B861D2247884200B9DE3E /* ViewController.swift */; };
+		805B861E2247884200B9DE3E /* SelectPersonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B861D2247884200B9DE3E /* SelectPersonVC.swift */; };
 		805B86212247884200B9DE3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805B861F2247884200B9DE3E /* Main.storyboard */; };
 		805B86232247884300B9DE3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805B86222247884300B9DE3E /* Assets.xcassets */; };
 		805B86262247884300B9DE3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805B86242247884300B9DE3E /* LaunchScreen.storyboard */; };
+		805B8630224788A200B9DE3E /* Starjhol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 805B862D224788A200B9DE3E /* Starjhol.ttf */; };
+		805B8631224788A200B9DE3E /* Starjout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 805B862E224788A200B9DE3E /* Starjout.ttf */; };
+		805B8632224788A200B9DE3E /* Starjedi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 805B862F224788A200B9DE3E /* Starjedi.ttf */; };
+		805B86392247A0A700B9DE3E /* BlackBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B86382247A0A700B9DE3E /* BlackBgView.swift */; };
+		805B863C2247A17A00B9DE3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B863B2247A17A00B9DE3E /* Constants.swift */; };
+		805B863F2247AA8600B9DE3E /* PersonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B863E2247AA8600B9DE3E /* PersonAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		805B86182247884200B9DE3E /* StarTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805B861B2247884200B9DE3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		805B861D2247884200B9DE3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		805B861D2247884200B9DE3E /* SelectPersonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonVC.swift; sourceTree = "<group>"; };
 		805B86202247884200B9DE3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		805B86222247884300B9DE3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		805B86252247884300B9DE3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		805B86272247884300B9DE3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		805B862D224788A200B9DE3E /* Starjhol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjhol.ttf; sourceTree = "<group>"; };
+		805B862E224788A200B9DE3E /* Starjout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjout.ttf; sourceTree = "<group>"; };
+		805B862F224788A200B9DE3E /* Starjedi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjedi.ttf; sourceTree = "<group>"; };
+		805B86382247A0A700B9DE3E /* BlackBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackBgView.swift; sourceTree = "<group>"; };
+		805B863B2247A17A00B9DE3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		805B863E2247AA8600B9DE3E /* PersonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,76 @@
 		805B861A2247884200B9DE3E /* StarTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				805B86352247898700B9DE3E /* Model */,
+				805B86362247898E00B9DE3E /* View */,
+				805B86372247899500B9DE3E /* Controller */,
 				805B861B2247884200B9DE3E /* AppDelegate.swift */,
-				805B861D2247884200B9DE3E /* ViewController.swift */,
+				805B861D2247884200B9DE3E /* SelectPersonVC.swift */,
+				805B863D2247AA6900B9DE3E /* Services */,
+				805B863A2247A16600B9DE3E /* Utils */,
+				805B8634224788F300B9DE3E /* Resources */,
 				805B861F2247884200B9DE3E /* Main.storyboard */,
 				805B86222247884300B9DE3E /* Assets.xcassets */,
 				805B86242247884300B9DE3E /* LaunchScreen.storyboard */,
 				805B86272247884300B9DE3E /* Info.plist */,
 			);
 			path = StarTrivia;
+			sourceTree = "<group>";
+		};
+		805B8633224788DB00B9DE3E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				805B862F224788A200B9DE3E /* Starjedi.ttf */,
+				805B862D224788A200B9DE3E /* Starjhol.ttf */,
+				805B862E224788A200B9DE3E /* Starjout.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		805B8634224788F300B9DE3E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				805B8633224788DB00B9DE3E /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		805B86352247898700B9DE3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		805B86362247898E00B9DE3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				805B86382247A0A700B9DE3E /* BlackBgView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		805B86372247899500B9DE3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		805B863A2247A16600B9DE3E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				805B863B2247A17A00B9DE3E /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		805B863D2247AA6900B9DE3E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				805B863E2247AA8600B9DE3E /* PersonAPI.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +199,9 @@
 				805B86262247884300B9DE3E /* LaunchScreen.storyboard in Resources */,
 				805B86232247884300B9DE3E /* Assets.xcassets in Resources */,
 				805B86212247884200B9DE3E /* Main.storyboard in Resources */,
+				805B8631224788A200B9DE3E /* Starjout.ttf in Resources */,
+				805B8632224788A200B9DE3E /* Starjedi.ttf in Resources */,
+				805B8630224788A200B9DE3E /* Starjhol.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				805B861E2247884200B9DE3E /* ViewController.swift in Sources */,
+				805B861E2247884200B9DE3E /* SelectPersonVC.swift in Sources */,
 				805B861C2247884200B9DE3E /* AppDelegate.swift in Sources */,
+				805B86392247A0A700B9DE3E /* BlackBgView.swift in Sources */,
+				805B863F2247AA8600B9DE3E /* PersonAPI.swift in Sources */,
+				805B863C2247A17A00B9DE3E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
