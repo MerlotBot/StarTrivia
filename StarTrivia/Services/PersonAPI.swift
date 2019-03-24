@@ -12,7 +12,8 @@ import SwiftyJSON
 
 class PersonAPI {
     
-    // Web request with alamofire and SwiftyJSON
+    
+    // Web request with alamofire and Codable
     func getRandomPersonAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
         
         guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
@@ -24,9 +25,11 @@ class PersonAPI {
             }
             
             guard let data = response.data else { return completion(nil)}
+            // we instantiate a jsondecoder
+            let jsonDecoder = JSONDecoder()
             do {
-                let json = try JSON(data: data)
-                let person = self.parsePersonSwifty(json: json)
+                // then we try to decode it supplying the type we expect and the data
+                let person = try jsonDecoder.decode(Person.self, from: data)
                 completion(person)
             } catch {
                 debugPrint(error.localizedDescription)
@@ -35,6 +38,29 @@ class PersonAPI {
         }
     }
     
+//    // Web request with alamofire and SwiftyJSON
+//    func getRandomPersonAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
+//
+//        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+//        Alamofire.request(url).responseJSON { (response) in
+//            if let error = response.result.error {
+//                debugPrint(error.localizedDescription)
+//                completion(nil)
+//                return
+//            }
+//
+//            guard let data = response.data else { return completion(nil)}
+//            do {
+//                let json = try JSON(data: data)
+//                let person = self.parsePersonSwifty(json: json)
+//                completion(person)
+//            } catch {
+//                debugPrint(error.localizedDescription)
+//                completion(nil)
+//            }
+//        }
+//    }
+//
 //    // Web Request with Alamofire
 //    func getRandomPersonAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
 //
