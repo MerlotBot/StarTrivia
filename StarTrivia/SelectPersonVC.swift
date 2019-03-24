@@ -29,7 +29,7 @@ class SelectPersonVC: UIViewController {
         let random = Int.random(in: 1 ... 87)
         //step 1: make networking request, by calling getRand... which initiates a web request
         // where we have access to that thing that we passed into our completion handler, person
-        personApi.getRandomPersonUrlSession(id: random) { (person) in
+        personApi.getRandomPersonAlamo(id: random) { (person) in
             if let person = person {
                 self.nameLbl.text = person.name
                 self.heightLbl.text = person.height
