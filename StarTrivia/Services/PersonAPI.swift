@@ -78,41 +78,41 @@ class PersonAPI {
 //        }
 //    }
     
-//    // Web Request with URL Session
-//    func getRandomPersonUrlSession(id: Int, completion: @escaping PersonResponseCompletion) {
-//
-//        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
-//        // run a web request
-//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            guard error == nil else {
-//                debugPrint(error.debugDescription)
-//                completion(nil)
-//                return
-//            }
-//
-//            // get back the data
-//            guard let data = data else { return }
-//
-//            // turn it to something that we want to read, i.e parsing the data
-//            do {
-//                // try to serialize our data to json
-//                let jsonAny = try JSONSerialization.jsonObject(with: data, options: [])
-//                // cast our JSON into a dictionary
-//                guard let json = jsonAny as? [String: Any] else { return }
-//                let person = self.parsePersonManual(json: json)
-//                // when all the above is done, we finally say completion and it is when it escapes the function and goes to our SelectPersonVC
-//                DispatchQueue.main.async {
-//                    completion(person)
-//                }
-//
-//            } catch {
-//                debugPrint(error.localizedDescription)
-//                return
-//            }
-//        }
-//        task.resume()
-//    }
+    // Web Request with URL Session
+    func getRandomPersonUrlSession(id: Int, completion: @escaping PersonResponseCompletion) {
+
+        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+        // run a web request
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+
+            guard error == nil else {
+                debugPrint(error.debugDescription)
+                completion(nil)
+                return
+            }
+
+            // get back the data
+            guard let data = data else { return }
+
+            // turn it to something that we want to read, i.e parsing the data
+            do {
+                // try to serialize our data to json
+                let jsonAny = try JSONSerialization.jsonObject(with: data, options: [])
+                // cast our JSON into a dictionary
+                guard let json = jsonAny as? [String: Any] else { return }
+                let person = self.parsePersonManual(json: json)
+                // when all the above is done, we finally say completion and it is when it escapes the function and goes to our SelectPersonVC
+                DispatchQueue.main.async {
+                    completion(person)
+                }
+
+            } catch {
+                debugPrint(error.localizedDescription)
+                return
+            }
+        }
+        task.resume()
+    }
     
     // Parsing with SwiftyJSON
     private func parsePersonSwifty(json: JSON) -> Person {
