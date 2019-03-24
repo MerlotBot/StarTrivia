@@ -10,32 +10,51 @@ import Foundation
 
 class PersonAPI {
     
-    func getRandomPersonUrlSession() {
+    func getRandomPersonUrlSession(completion: @escaping PersonResponseCompletion) {
         
         guard let url = URL(string: PERSON_URL) else { return }
-        
+        // run a web request
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 debugPrint(error.debugDescription)
+                completion(nil)
                 return
             }
             
-            // unwrap our data
+            // get back the data
             guard let data = data else { return }
             
-            // turn it to something that we want to read
+            // turn it to something that we want to read, i.e parsing the data
             do {
                 // try to serialize our data to json
                 let jsonAny = try JSONSerialization.jsonObject(with: data, options: [])
                 // cast our JSON into a dictionary
                 guard let json = jsonAny as? [String: Any] else { return }
-                print(json)
-                
+                let person = self.parsePersonManual(json: json)
+                // when all the above is done, we finally say completion and it is when it escapes the function and goes to our SelectPersonVC
+                completion(person)
             } catch {
                 debugPrint(error.localizedDescription)
                 return
             }
         }
         task.resume()
+    }
+    
+    // parse it into an object, a person structure
+    private func parsePersonManual(json: [String: Any]) -> Person {
+        let name = json["name"] as? String ?? ""
+        let height = json["height"] as? String ?? ""
+        let mass = json["mass"] as? String ?? ""
+        let hair = json["hair_color"] as? String ?? ""
+        let birthYear = json["birth_year"] as? String ?? ""
+        let gender = json["gender"] as? String ?? ""
+        let homeWorldUrl = json["homeworld"] as? String ?? ""
+        let filmUrls = json["films"] as? [String] ?? [String]()
+        let vehicleUrls = json["vehicles"] as? [String] ?? [String]()
+        let starshipUrls = json["starships"] as? [String] ?? [String]()
+        
+        return Person(name: name, height: height, mass: mass, hair: hair, birthYear: birthYear, gender: gender, homeWorldUrl: homeWorldUrl, filmUrls: filmUrls, vehicleUrls: vehicleUrls, starshipUrls: starshipUrls)
+        
     }
 }
