@@ -10,11 +10,12 @@ import Foundation
 
 class PersonAPI {
     
-    func getRandomPersonUrlSession(completion: @escaping PersonResponseCompletion) {
+    func getRandomPersonUrlSession(id: Int, completion: @escaping PersonResponseCompletion) {
         
-        guard let url = URL(string: PERSON_URL) else { return }
+        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
         // run a web request
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             guard error == nil else {
                 debugPrint(error.debugDescription)
                 completion(nil)
@@ -32,7 +33,10 @@ class PersonAPI {
                 guard let json = jsonAny as? [String: Any] else { return }
                 let person = self.parsePersonManual(json: json)
                 // when all the above is done, we finally say completion and it is when it escapes the function and goes to our SelectPersonVC
-                completion(person)
+                DispatchQueue.main.async {
+                    completion(person)
+                }
+                
             } catch {
                 debugPrint(error.localizedDescription)
                 return
